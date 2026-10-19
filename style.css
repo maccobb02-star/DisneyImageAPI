@@ -1,16 +1,17 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: black;
 }
 
-.joke{
+.joke {
   margin: 100px;
   padding: 50px;
   width: 600px;
 
   display: block;
   border: solid 1px white;
-  text-align:center;
+  text-align: center;
   color: white;
 }

@@ -1,17 +1,15 @@
 async function getImage() {
     try {
-        const characterName = document.getElementById("characterName");
-        console.log(characterName)
-        const url = "https://api.disneyapi.dev/character?queryParams" + characterName.value;
+        const character = document.getElementById("character").value;
+        console.log(character)
+        const url = "https://api.disneyapi.dev/character?name=" + character;
 
-        const response = await fetch(url, { headers: headers })
+        const response = await fetch(url)
 
         const json = await response.json();
         console.log(JSON.stringify(json));
         const characterHolder = document.getElementById("characterHolder")
-        characterHolder.textContent = characterName;
-
-        characterHolder.append(document.getElementById("characterHolder"));
+        characterHolder.textContent = character;
 
         characterHolder.append(document.createElement("br"))
 
@@ -19,6 +17,8 @@ async function getImage() {
         img.src = json.data[0].imageUrl;
         img.width = 100;
         characterHolder.appendChild(img);
+
+
     }
     catch (error) {
         console.log(error)
